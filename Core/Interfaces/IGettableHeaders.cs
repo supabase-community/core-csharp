@@ -6,6 +6,6 @@ namespace Supabase.Core.Interfaces
 {
     public interface IGettableHeaders
     {
-        Func<Dictionary<string, string>> Headers();
+        Func<Dictionary<string, string>>? GetHeaders { get; set; }
     }
 }

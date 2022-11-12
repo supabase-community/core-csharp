@@ -20,8 +20,8 @@
 		<PackageLicenseUrl>https://github.com/supabase-community/core-csharp/blob/master/LICENSE</PackageLicenseUrl>
 		<PackageProjectUrl>https://github.com/supabase-community/core-csharp</PackageProjectUrl>
 		<PackageTags>supabase, core</PackageTags>
-		<PackageVersion>0.0.1</PackageVersion>
-		<ReleaseVersion>0.0.1</ReleaseVersion>
+		<PackageVersion>0.0.2</PackageVersion>
+		<ReleaseVersion>0.0.2</ReleaseVersion>
 	</PropertyGroup>
 	
 	<PropertyGroup>
