@@ -161,19 +161,19 @@ references:
   commentId: T:Supabase.Core.Interfaces.IGettableHeaders
   fullName: Supabase.Core.Interfaces.IGettableHeaders
   nameWithType: IGettableHeaders
-- uid: Supabase.Core.Interfaces.IGettableHeaders.Headers
-  name: Headers()
-  href: api/Supabase.Core.Interfaces.IGettableHeaders.html#Supabase_Core_Interfaces_IGettableHeaders_Headers
-  commentId: M:Supabase.Core.Interfaces.IGettableHeaders.Headers
-  fullName: Supabase.Core.Interfaces.IGettableHeaders.Headers()
-  nameWithType: IGettableHeaders.Headers()
-- uid: Supabase.Core.Interfaces.IGettableHeaders.Headers*
-  name: Headers
-  href: api/Supabase.Core.Interfaces.IGettableHeaders.html#Supabase_Core_Interfaces_IGettableHeaders_Headers_
-  commentId: Overload:Supabase.Core.Interfaces.IGettableHeaders.Headers
+- uid: Supabase.Core.Interfaces.IGettableHeaders.GetHeaders
+  name: GetHeaders
+  href: api/Supabase.Core.Interfaces.IGettableHeaders.html#Supabase_Core_Interfaces_IGettableHeaders_GetHeaders
+  commentId: P:Supabase.Core.Interfaces.IGettableHeaders.GetHeaders
+  fullName: Supabase.Core.Interfaces.IGettableHeaders.GetHeaders
+  nameWithType: IGettableHeaders.GetHeaders
+- uid: Supabase.Core.Interfaces.IGettableHeaders.GetHeaders*
+  name: GetHeaders
+  href: api/Supabase.Core.Interfaces.IGettableHeaders.html#Supabase_Core_Interfaces_IGettableHeaders_GetHeaders_
+  commentId: Overload:Supabase.Core.Interfaces.IGettableHeaders.GetHeaders
   isSpec: "True"
-  fullName: Supabase.Core.Interfaces.IGettableHeaders.Headers
-  nameWithType: IGettableHeaders.Headers
+  fullName: Supabase.Core.Interfaces.IGettableHeaders.GetHeaders
+  nameWithType: IGettableHeaders.GetHeaders
 - uid: Supabase.Core.Util
   name: Util
   href: api/Supabase.Core.Util.html
