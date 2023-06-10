@@ -6,9 +6,19 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2E3D2A48-13BB-4FDE-A351-0F5A18E483F9}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+		CHANGELOG.md = CHANGELOG.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{CB06BAE1-2939-48B9-A6E0-76B7CB9B28EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{A499F1A7-D091-49B0-BA37-DE4B8B96D4AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{E74F4FEF-A266-4BDF-ABE3-9971D1D9D134}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build-documentation.yaml = .github\workflows\build-documentation.yaml
+		.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
+		.github\workflows\release.yml = .github\workflows\release.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,5 +36,9 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {60A9E6A9-9F1E-4BDB-ACAF-379C9B524314}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A499F1A7-D091-49B0-BA37-DE4B8B96D4AB} = {2E3D2A48-13BB-4FDE-A351-0F5A18E483F9}
+		{E74F4FEF-A266-4BDF-ABE3-9971D1D9D134} = {A499F1A7-D091-49B0-BA37-DE4B8B96D4AB}
 	EndGlobalSection
 EndGlobal
