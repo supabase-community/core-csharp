@@ -3,8 +3,8 @@
 </p>
 <p align="center">
   <img src="https://github.com/supabase-community/core-csharp/workflows/Build%20And%20Test/badge.svg"/>
-  <a href="https://www.nuget.org/packages/supabase-core/">
-    <img src="https://img.shields.io/nuget/vpre/supabase-core"/>
+  <a href="https://www.nuget.org/packages/Supabase.Core/">
+    <img src="https://img.shields.io/nuget/vpre/Supabase.Core"/>
   </a>
 </p>
 
