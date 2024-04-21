@@ -1,45 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
-        <AssemblyName>Supabase.Core</AssemblyName>
-        <RootNamespace>Supabase.Core</RootNamespace>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <TargetFramework>netstandard2.0</TargetFramework>
-        <PackOnBuild>true</PackOnBuild>
-        <PackageId>supabase-core</PackageId>
-        <Authors>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Authors>
-        <Copyright>MIT</Copyright>
-        <NeutralLanguage>en</NeutralLanguage>
-        <Owners>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Owners>
-        <Summary>Shared core for supabase-csharp</Summary>
-        <Title>Supabase Core</Title>
-        <Description>Shared core for supabase-csharp</Description>
-        <PackageIconUrl>https://avatars.githubusercontent.com/u/54469796?s=200&amp;v=4</PackageIconUrl>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageProjectUrl>https://github.com/supabase-community/core-csharp</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/supabase-community/core-csharp</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
-        <PackageTags>supabase, core</PackageTags>
-        <PackageIcon>icon.png</PackageIcon>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageVersion>0.0.3</PackageVersion>
-        <ReleaseVersion>0.0.3</ReleaseVersion>
-    </PropertyGroup>
-    <PropertyGroup>
-        <IncludeSymbols>true</IncludeSymbols>
-        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    </PropertyGroup>
-    <PropertyGroup>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    </PropertyGroup>
-    <PropertyGroup>
-        <Nullable>enable</Nullable>
-        <LangVersion>8.0</LangVersion>
-        <WarningsAsErrors>CS8600;CS8602;CS8603</WarningsAsErrors>
-    </PropertyGroup>
-    <ItemGroup>
-        <None Include="..\.github\icon.png" Pack="true" Link="icon.png" PackagePath="\" />
-        <None Include="..\README.md" Pack="true" Link="README.md" PackagePath="\" />
-    </ItemGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<PackOnBuild>true</PackOnBuild>
+		<PackageId>Supabase.Core</PackageId>
+		<Authors>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Authors>
+		<Copyright>MIT</Copyright>
+		<NeutralLanguage>en</NeutralLanguage>
+		<Owners>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Owners>
+		<Summary>Shared core for supabase-csharp</Summary>
+		<Title>Supabase Core</Title>
+		<Description>Shared core for Supabase.*</Description>
+		<AssemblyName>Supabase.Core</AssemblyName>
+		<RootNamespace>Supabase.Core</RootNamespace>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageIconUrl>https://avatars.githubusercontent.com/u/54469796?s=200&amp;v=4</PackageIconUrl>
+		<PackageLicense>https://github.com/supabase-community/core-csharp/blob/master/LICENSE</PackageLicense>
+		<PackageProjectUrl>https://github.com/supabase-community/core-csharp</PackageProjectUrl>
+		<PackageTags>supabase, core</PackageTags>
+		<RepositoryUrl>https://github.com/supabase-community/core-csharp</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageVersion>0.0.2</PackageVersion>
+		<ReleaseVersion>0.0.2</ReleaseVersion>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	</PropertyGroup>
+	
+	<PropertyGroup>
+		<Nullable>enable</Nullable>
+		<LangVersion>8.0</LangVersion>
+		<WarningsAsErrors>CS8600;CS8602;CS8603</WarningsAsErrors>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\.github\icon.png" Pack="true" Link="icon.png" PackagePath="\" />
+		<None Include="..\README.md" Pack="true" Link="README.md" PackagePath="\" />
+	</ItemGroup>
 </Project>

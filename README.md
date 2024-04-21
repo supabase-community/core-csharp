@@ -8,7 +8,8 @@
   </a>
 </p>
 
-This repo contains shared resources for the [supabase-csharp](https://github.com/supabase-community/supabase-csharp) repo and its dependent libraries.
+This repo contains shared resources for the [supabase-csharp](https://github.com/supabase-community/supabase-csharp)
+repo and its dependent libraries.
 
 ## Package made possible through the efforts of:
 
