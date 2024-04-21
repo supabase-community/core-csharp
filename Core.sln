@@ -16,8 +16,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{E74F4FEF-A266-4BDF-ABE3-9971D1D9D134}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\build-documentation.yaml = .github\workflows\build-documentation.yaml
-		.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
 		.github\workflows\release.yml = .github\workflows\release.yml
+		.github\workflows\build-and-test.yml = .github\workflows\build-and-test.yml
 	EndProjectSection
 EndProject
 Global
