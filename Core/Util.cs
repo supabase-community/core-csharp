@@ -25,7 +25,7 @@ namespace Supabase.Core
             $"{GetClientName(clientType)}-csharp/{GetClientVersion(clientType)}{BuildMetadata()}";
 
         private static string GetClientName(Type clientType) =>
-            clientType.Assembly.GetName().Name!.ToLower();
+            clientType.Assembly.GetName().Name.ToLower();
 
         private static string GetClientVersion(Type clientType) =>
             clientType.Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()!.InformationalVersion;
@@ -63,7 +63,7 @@ namespace Supabase.Core
         // in hybrid apps where both assemblies are present. Returns null for plain console/desktop apps.
         private static string? GetFramework()
         {
-            var names = new HashSet<string?>(GetAssemblies());
+            var names = new HashSet<string>(GetAssemblies());
             if (names.Contains("Microsoft.Maui")) return "maui";
             if (names.Contains("UnityEngine.CoreModule")) return "unity";
             return names.Contains("Microsoft.AspNetCore.Components") ? "blazor" : null;
