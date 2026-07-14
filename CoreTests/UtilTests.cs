@@ -40,17 +40,16 @@ namespace CoreTests
         }
 
         [TestMethod]
-        public void GetAssemblyVersion_HasNoEmptyOrUnknownValues()
+        public void GetAssemblyVersion_HasNoEmptyValues()
         {
             Result.Should().NotMatchRegex(@"=\s*;");
             Result.Should().NotMatchRegex(@"=$");
-            Result.Should().NotContain("=unknown");
         }
 
         [TestMethod]
-        public void GetAssemblyVersion_DoesNotIncludeFrameworkForPlainDotnet()
+        public void GetAssemblyVersion_IncludeUnknownFrameworkForPlainDotnet()
         {
-            Result.Should().NotContain("; framework=");
+            Result.Should().Contain("; framework=unknown");
         }
     }
 }

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -24,58 +23,77 @@ namespace Supabase.Core
         public static string GetAssemblyVersion(Type clientType) =>
             $"{GetClientName(clientType)}-csharp/{GetClientVersion(clientType)}{BuildMetadata()}";
 
-        private static string GetClientName(Type clientType) =>
-            clientType.Assembly.GetName().Name.ToLower();
+        private static string GetClientName(Type clientType) => clientType.Assembly.GetName().Name.ToLower();
 
-        private static string GetClientVersion(Type clientType) =>
-            clientType.Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()!.InformationalVersion;
+        private static string? GetClientVersion(Type clientType) => GetInformationalVersion(clientType.Assembly);
 
-        private static string BuildMetadata() => string.Concat(GetPlatformInfo(), GetRuntimeInfo(), GetFrameworkInfo());
+        private static string BuildMetadata() => string.Concat(GetPlatformInfo().ToString(), GetRuntimeInfo().ToString(), GetFrameworkInfo().ToString());
 
-        private static string? GetPlatform()
+        private sealed class MetadataEntry
+        {
+            private readonly string key;
+            private readonly string value;
+            private readonly string? version;
+
+            internal MetadataEntry(string key, string value, string? version = null)
+            {
+                this.key = key;
+                this.value = value;
+                this.version = version;
+            }
+
+            public override string ToString() => string.IsNullOrEmpty(version)
+                ? $"; {key}={value}"
+                : $"; {key}={value}; {key}-version={version}";
+            
+            internal static MetadataEntry Unknown(string key) => new MetadataEntry(key, "unknown");
+        }
+
+        private static string GetPlatform()
         {
             if (RuntimeInformation.OSDescription == "Browser") return "browser";
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return "Windows";
             if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX)) return "macOS";
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) return "Linux";
-            return null;
+            return "unknown";
         }
 
-        private static string GetPlatformInfo()
+        private static MetadataEntry GetPlatformInfo() => new MetadataEntry("platform", GetPlatform(), Environment.OSVersion.Version.ToString());
+
+        private static MetadataEntry GetRuntimeInfo() => new MetadataEntry("runtime", "dotnet", Environment.Version.ToString());
+
+        // Priority is explicit: MAUI wins over Blazor in hybrid apps where both assemblies are present.
+        // Unity version uses GetCustomAttributesData() rather than member reflection — safe under IL2CPP.
+        private static MetadataEntry GetFrameworkInfo()
         {
-            var platform = GetPlatform();
-            if (platform == null) return string.Empty;
-            var platformVersion = Environment.OSVersion.Version.ToString();
-            return string.IsNullOrEmpty(platformVersion)
-                ? $"; platform={platform}"
-                : $"; platform={platform}; platform-version={platformVersion}";
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies()
+                .GroupBy(a => a.GetName().Name)
+                .ToDictionary(g => g.Key, g => g.First());
+
+            if (assemblies.TryGetValue("Microsoft.Maui", out var maui))
+                return new MetadataEntry("framework", "maui", GetInformationalVersion(maui));
+            if (assemblies.ContainsKey("UnityEngine.CoreModule"))
+                return new MetadataEntry("framework", "unity", GetUnityVersion());
+            if (assemblies.TryGetValue("Microsoft.AspNetCore.Components", out var blazor))
+                return new MetadataEntry("framework", "blazor", GetInformationalVersion(blazor));
+            return MetadataEntry.Unknown("framework");
         }
 
-        private static string GetRuntimeInfo()
+        private static string? GetInformationalVersion(Assembly assembly) =>
+            assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
+
+        private static CustomAttributeData[] SafeGetCustomAttributesData(Assembly assembly)
         {
-            var runtimeVersion = Environment.Version.ToString();
-            return string.IsNullOrEmpty(runtimeVersion)
-                ? "; runtime=dotnet"
-                : $"; runtime=dotnet; runtime-version={runtimeVersion}";
+            try { return assembly.GetCustomAttributesData().ToArray(); }
+            catch { return Array.Empty<CustomAttributeData>(); }
         }
 
-        // Scans loaded assemblies to detect the host framework. Priority is explicit: MAUI wins over Blazor
-        // in hybrid apps where both assemblies are present. Returns null for plain console/desktop apps.
-        private static string? GetFramework()
+        private static string? GetUnityVersion()
         {
-            var names = new HashSet<string>(GetAssemblies());
-            if (names.Contains("Microsoft.Maui")) return "maui";
-            if (names.Contains("UnityEngine.CoreModule")) return "unity";
-            return names.Contains("Microsoft.AspNetCore.Components") ? "blazor" : null;
-        }
-
-        private static IEnumerable<string> GetAssemblies() => 
-            AppDomain.CurrentDomain.GetAssemblies().Select(a => a.GetName().Name);
-
-        private static string GetFrameworkInfo()
-        {
-            var framework = GetFramework();
-            return framework != null ? $"; framework={framework}" : string.Empty;
+            var attr = AppDomain.CurrentDomain.GetAssemblies()
+                .SelectMany(SafeGetCustomAttributesData)
+                .FirstOrDefault(d => d.AttributeType.Name == "UnityAPICompatibilityVersionAttribute");
+            return attr?.ConstructorArguments.Count > 0 ? attr.ConstructorArguments[0].Value as string : null;
         }
     }
 }
