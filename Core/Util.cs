@@ -54,8 +54,10 @@ namespace Supabase.Core
             if (RuntimeInformation.OSDescription == "Browser") return "browser";
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return "Windows";
             if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX)) return "macOS";
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Create("iOS"))) return "iOS";
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) return "Linux";
-            return "unknown";
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Create("Android"))) return "Android";
+            return RuntimeInformation.OSDescription;
         }
 
         private static MetadataEntry GetPlatformInfo() => new MetadataEntry("platform", GetPlatform(), Environment.OSVersion.Version.ToString());
