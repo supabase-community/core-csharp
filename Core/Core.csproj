@@ -21,8 +21,10 @@
 		<PackageTags>supabase, core</PackageTags>
 		<RepositoryUrl>https://github.com/supabase-community/core-csharp</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
+		<!-- x-release-please-start-version -->
 		<PackageVersion>1.0.0</PackageVersion>
 		<ReleaseVersion>1.0.0</ReleaseVersion>
+		<!-- x-release-please-end -->
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
