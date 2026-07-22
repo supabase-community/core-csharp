@@ -29,6 +29,54 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Core.Diagnostics.ActivityExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Core.Diagnostics.ActivityExtensions.html",
+          "hash": "s59+RQBZO7X7XOpw9O6+cA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Core.Diagnostics.Instrumentation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Core.Diagnostics.Instrumentation.html",
+          "hash": "XcPoUCAlbIxbMfCYIvLJJQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Core.Diagnostics.UrlSanitizer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Core.Diagnostics.UrlSanitizer.html",
+          "hash": "a4GBWhbEYYhdOSr8xMzmwQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Supabase.Core.Diagnostics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Supabase.Core.Diagnostics.html",
+          "hash": "bIArfpnGAaGobfNf0PH6Xw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Supabase.Core.Extensions.DictionaryExtensions.yml",
       "output": {
         ".html": {
@@ -129,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "9/MoHN0mXElYMnapFKarWQ=="
+          "hash": "dIQKJHiYzfNN3zw2yDY10A=="
         }
       },
       "is_incremental": false,
@@ -180,7 +228,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 9,
+          "total_file_count": 13,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Namespace Supabase.Core.Diagnostics
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Namespace Supabase.Core.Diagnostics
+   ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Supabase.Core.Diagnostics">
+  
+  <h1 id="Supabase_Core_Diagnostics" data-uid="Supabase.Core.Diagnostics" class="text-break">Namespace Supabase.Core.Diagnostics
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">Classes
+  </h3>
+      <h4><a class="xref" href="Supabase.Core.Diagnostics.ActivityExtensions.html">ActivityExtensions</a></h4>
+      <section><p>Null-safe helpers for tagging activities with OpenTelemetry HTTP semantic conventions.</p>
+<p>All members accept a null <see cref="!:Activity"></see> (the result of
+<see cref="!:ActivitySource.StartActivity(string, ActivityKind)"></see> when nothing is listening)
+and no-op, so call sites need no listener checks. URLs are recorded through
+<a class="xref" href="Supabase.Core.Diagnostics.UrlSanitizer.html">UrlSanitizer</a> only — never record a raw URL, query string, token, or other
+credential as a tag value.</p>
+</section>
+      <h4><a class="xref" href="Supabase.Core.Diagnostics.Instrumentation.html">Instrumentation</a></h4>
+      <section><p>Factory methods for the <see cref="!:ActivitySource"></see> and <see cref="!:Meter"></see> instances used
+by the Supabase client libraries.</p>
+<p>Emission is zero-cost unless a consumer subscribes a listener (e.g. via the OpenTelemetry
+SDK with <code>AddSource(&quot;Supabase.<em>&quot;)</em></code> / <code>AddMeter(&quot;Supabase.&quot;)</code>), so instrumentation
+built on these sources is always on and requires no configuration to stay silent.</p>
+</section>
+      <h4><a class="xref" href="Supabase.Core.Diagnostics.UrlSanitizer.html">UrlSanitizer</a></h4>
+      <section><p>Reduces URLs to a form that is safe to record in telemetry and logs.</p>
+<p>Supabase URLs routinely carry secrets outside the path — access tokens in fragments,
+API keys, PKCE verifiers and grant parameters in query strings — so telemetry must only
+ever record scheme, host, port and path. There is no overload that keeps the query
+string; that is deliberate.</p>
+</section>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -61,6 +61,136 @@ references:
   isSpec: "True"
   fullName: Supabase.Core.Attributes.MapToAttribute.Mapping
   nameWithType: MapToAttribute.Mapping
+- uid: Supabase.Core.Diagnostics
+  name: Supabase.Core.Diagnostics
+  href: api/Supabase.Core.Diagnostics.html
+  commentId: N:Supabase.Core.Diagnostics
+  fullName: Supabase.Core.Diagnostics
+  nameWithType: Supabase.Core.Diagnostics
+- uid: Supabase.Core.Diagnostics.ActivityExtensions
+  name: ActivityExtensions
+  href: api/Supabase.Core.Diagnostics.ActivityExtensions.html
+  commentId: T:Supabase.Core.Diagnostics.ActivityExtensions
+  fullName: Supabase.Core.Diagnostics.ActivityExtensions
+  nameWithType: ActivityExtensions
+- uid: Supabase.Core.Diagnostics.ActivityExtensions.SetFailure(System.Nullable{Activity},Exception)
+  name: SetFailure(Nullable<Activity>, Exception)
+  href: api/Supabase.Core.Diagnostics.ActivityExtensions.html#Supabase_Core_Diagnostics_ActivityExtensions_SetFailure_System_Nullable_Activity__Exception_
+  commentId: M:Supabase.Core.Diagnostics.ActivityExtensions.SetFailure(System.Nullable{Activity},Exception)
+  name.vb: SetFailure(Nullable(Of Activity), Exception)
+  fullName: Supabase.Core.Diagnostics.ActivityExtensions.SetFailure(System.Nullable<Activity>, Exception)
+  fullName.vb: Supabase.Core.Diagnostics.ActivityExtensions.SetFailure(System.Nullable(Of Activity), Exception)
+  nameWithType: ActivityExtensions.SetFailure(Nullable<Activity>, Exception)
+  nameWithType.vb: ActivityExtensions.SetFailure(Nullable(Of Activity), Exception)
+- uid: Supabase.Core.Diagnostics.ActivityExtensions.SetFailure*
+  name: SetFailure
+  href: api/Supabase.Core.Diagnostics.ActivityExtensions.html#Supabase_Core_Diagnostics_ActivityExtensions_SetFailure_
+  commentId: Overload:Supabase.Core.Diagnostics.ActivityExtensions.SetFailure
+  isSpec: "True"
+  fullName: Supabase.Core.Diagnostics.ActivityExtensions.SetFailure
+  nameWithType: ActivityExtensions.SetFailure
+- uid: Supabase.Core.Diagnostics.ActivityExtensions.SetHttpRequestTags(System.Nullable{Activity},System.String,Uri)
+  name: SetHttpRequestTags(Nullable<Activity>, String, Uri)
+  href: api/Supabase.Core.Diagnostics.ActivityExtensions.html#Supabase_Core_Diagnostics_ActivityExtensions_SetHttpRequestTags_System_Nullable_Activity__System_String_Uri_
+  commentId: M:Supabase.Core.Diagnostics.ActivityExtensions.SetHttpRequestTags(System.Nullable{Activity},System.String,Uri)
+  name.vb: SetHttpRequestTags(Nullable(Of Activity), String, Uri)
+  fullName: Supabase.Core.Diagnostics.ActivityExtensions.SetHttpRequestTags(System.Nullable<Activity>, System.String, Uri)
+  fullName.vb: Supabase.Core.Diagnostics.ActivityExtensions.SetHttpRequestTags(System.Nullable(Of Activity), System.String, Uri)
+  nameWithType: ActivityExtensions.SetHttpRequestTags(Nullable<Activity>, String, Uri)
+  nameWithType.vb: ActivityExtensions.SetHttpRequestTags(Nullable(Of Activity), String, Uri)
+- uid: Supabase.Core.Diagnostics.ActivityExtensions.SetHttpRequestTags*
+  name: SetHttpRequestTags
+  href: api/Supabase.Core.Diagnostics.ActivityExtensions.html#Supabase_Core_Diagnostics_ActivityExtensions_SetHttpRequestTags_
+  commentId: Overload:Supabase.Core.Diagnostics.ActivityExtensions.SetHttpRequestTags
+  isSpec: "True"
+  fullName: Supabase.Core.Diagnostics.ActivityExtensions.SetHttpRequestTags
+  nameWithType: ActivityExtensions.SetHttpRequestTags
+- uid: Supabase.Core.Diagnostics.ActivityExtensions.SetHttpResponseTags(System.Nullable{Activity},System.Int32)
+  name: SetHttpResponseTags(Nullable<Activity>, Int32)
+  href: api/Supabase.Core.Diagnostics.ActivityExtensions.html#Supabase_Core_Diagnostics_ActivityExtensions_SetHttpResponseTags_System_Nullable_Activity__System_Int32_
+  commentId: M:Supabase.Core.Diagnostics.ActivityExtensions.SetHttpResponseTags(System.Nullable{Activity},System.Int32)
+  name.vb: SetHttpResponseTags(Nullable(Of Activity), Int32)
+  fullName: Supabase.Core.Diagnostics.ActivityExtensions.SetHttpResponseTags(System.Nullable<Activity>, System.Int32)
+  fullName.vb: Supabase.Core.Diagnostics.ActivityExtensions.SetHttpResponseTags(System.Nullable(Of Activity), System.Int32)
+  nameWithType: ActivityExtensions.SetHttpResponseTags(Nullable<Activity>, Int32)
+  nameWithType.vb: ActivityExtensions.SetHttpResponseTags(Nullable(Of Activity), Int32)
+- uid: Supabase.Core.Diagnostics.ActivityExtensions.SetHttpResponseTags*
+  name: SetHttpResponseTags
+  href: api/Supabase.Core.Diagnostics.ActivityExtensions.html#Supabase_Core_Diagnostics_ActivityExtensions_SetHttpResponseTags_
+  commentId: Overload:Supabase.Core.Diagnostics.ActivityExtensions.SetHttpResponseTags
+  isSpec: "True"
+  fullName: Supabase.Core.Diagnostics.ActivityExtensions.SetHttpResponseTags
+  nameWithType: ActivityExtensions.SetHttpResponseTags
+- uid: Supabase.Core.Diagnostics.Instrumentation
+  name: Instrumentation
+  href: api/Supabase.Core.Diagnostics.Instrumentation.html
+  commentId: T:Supabase.Core.Diagnostics.Instrumentation
+  fullName: Supabase.Core.Diagnostics.Instrumentation
+  nameWithType: Instrumentation
+- uid: Supabase.Core.Diagnostics.Instrumentation.CreateActivitySource(Assembly,System.String)
+  name: CreateActivitySource(Assembly, String)
+  href: api/Supabase.Core.Diagnostics.Instrumentation.html#Supabase_Core_Diagnostics_Instrumentation_CreateActivitySource_Assembly_System_String_
+  commentId: M:Supabase.Core.Diagnostics.Instrumentation.CreateActivitySource(Assembly,System.String)
+  fullName: Supabase.Core.Diagnostics.Instrumentation.CreateActivitySource(Assembly, System.String)
+  nameWithType: Instrumentation.CreateActivitySource(Assembly, String)
+- uid: Supabase.Core.Diagnostics.Instrumentation.CreateActivitySource*
+  name: CreateActivitySource
+  href: api/Supabase.Core.Diagnostics.Instrumentation.html#Supabase_Core_Diagnostics_Instrumentation_CreateActivitySource_
+  commentId: Overload:Supabase.Core.Diagnostics.Instrumentation.CreateActivitySource
+  isSpec: "True"
+  fullName: Supabase.Core.Diagnostics.Instrumentation.CreateActivitySource
+  nameWithType: Instrumentation.CreateActivitySource
+- uid: Supabase.Core.Diagnostics.Instrumentation.CreateMeter(Assembly,System.String)
+  name: CreateMeter(Assembly, String)
+  href: api/Supabase.Core.Diagnostics.Instrumentation.html#Supabase_Core_Diagnostics_Instrumentation_CreateMeter_Assembly_System_String_
+  commentId: M:Supabase.Core.Diagnostics.Instrumentation.CreateMeter(Assembly,System.String)
+  fullName: Supabase.Core.Diagnostics.Instrumentation.CreateMeter(Assembly, System.String)
+  nameWithType: Instrumentation.CreateMeter(Assembly, String)
+- uid: Supabase.Core.Diagnostics.Instrumentation.CreateMeter*
+  name: CreateMeter
+  href: api/Supabase.Core.Diagnostics.Instrumentation.html#Supabase_Core_Diagnostics_Instrumentation_CreateMeter_
+  commentId: Overload:Supabase.Core.Diagnostics.Instrumentation.CreateMeter
+  isSpec: "True"
+  fullName: Supabase.Core.Diagnostics.Instrumentation.CreateMeter
+  nameWithType: Instrumentation.CreateMeter
+- uid: Supabase.Core.Diagnostics.Instrumentation.GetVersion(Assembly)
+  name: GetVersion(Assembly)
+  href: api/Supabase.Core.Diagnostics.Instrumentation.html#Supabase_Core_Diagnostics_Instrumentation_GetVersion_Assembly_
+  commentId: M:Supabase.Core.Diagnostics.Instrumentation.GetVersion(Assembly)
+  fullName: Supabase.Core.Diagnostics.Instrumentation.GetVersion(Assembly)
+  nameWithType: Instrumentation.GetVersion(Assembly)
+- uid: Supabase.Core.Diagnostics.Instrumentation.GetVersion*
+  name: GetVersion
+  href: api/Supabase.Core.Diagnostics.Instrumentation.html#Supabase_Core_Diagnostics_Instrumentation_GetVersion_
+  commentId: Overload:Supabase.Core.Diagnostics.Instrumentation.GetVersion
+  isSpec: "True"
+  fullName: Supabase.Core.Diagnostics.Instrumentation.GetVersion
+  nameWithType: Instrumentation.GetVersion
+- uid: Supabase.Core.Diagnostics.UrlSanitizer
+  name: UrlSanitizer
+  href: api/Supabase.Core.Diagnostics.UrlSanitizer.html
+  commentId: T:Supabase.Core.Diagnostics.UrlSanitizer
+  fullName: Supabase.Core.Diagnostics.UrlSanitizer
+  nameWithType: UrlSanitizer
+- uid: Supabase.Core.Diagnostics.UrlSanitizer.Sanitize(System.String)
+  name: Sanitize(String)
+  href: api/Supabase.Core.Diagnostics.UrlSanitizer.html#Supabase_Core_Diagnostics_UrlSanitizer_Sanitize_System_String_
+  commentId: M:Supabase.Core.Diagnostics.UrlSanitizer.Sanitize(System.String)
+  fullName: Supabase.Core.Diagnostics.UrlSanitizer.Sanitize(System.String)
+  nameWithType: UrlSanitizer.Sanitize(String)
+- uid: Supabase.Core.Diagnostics.UrlSanitizer.Sanitize(Uri)
+  name: Sanitize(Uri)
+  href: api/Supabase.Core.Diagnostics.UrlSanitizer.html#Supabase_Core_Diagnostics_UrlSanitizer_Sanitize_Uri_
+  commentId: M:Supabase.Core.Diagnostics.UrlSanitizer.Sanitize(Uri)
+  fullName: Supabase.Core.Diagnostics.UrlSanitizer.Sanitize(Uri)
+  nameWithType: UrlSanitizer.Sanitize(Uri)
+- uid: Supabase.Core.Diagnostics.UrlSanitizer.Sanitize*
+  name: Sanitize
+  href: api/Supabase.Core.Diagnostics.UrlSanitizer.html#Supabase_Core_Diagnostics_UrlSanitizer_Sanitize_
+  commentId: Overload:Supabase.Core.Diagnostics.UrlSanitizer.Sanitize
+  isSpec: "True"
+  fullName: Supabase.Core.Diagnostics.UrlSanitizer.Sanitize
+  nameWithType: UrlSanitizer.Sanitize
 - uid: Supabase.Core.Extensions
   name: Supabase.Core.Extensions
   href: api/Supabase.Core.Extensions.html
