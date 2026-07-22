@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/supabase-community/core-csharp/compare/v1.1.0...v1.2.0) (2026-07-22)
+
+
+### Features
+
+* add OpenTelemetry-compatible diagnostics primitives ([#6](https://github.com/supabase-community/core-csharp/issues/6)) ([a17a9e7](https://github.com/supabase-community/core-csharp/commit/a17a9e74cbee37e97ab365ca0e5648b2ae8dd913))
+
 ## [1.1.0](https://github.com/supabase-community/core-csharp/compare/v1.0.0...v1.1.0) (2026-07-15)
 
 
