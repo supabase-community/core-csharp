@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -21,13 +22,21 @@ namespace Supabase.Core
         /// <param name="clientType">A type belonging to the client assembly, used to resolve the assembly name and version.</param>
         /// <returns>A structured header value identifying the client library and its host environment.</returns>
         public static string GetAssemblyVersion(Type clientType) =>
-            $"{GetClientName(clientType)}-csharp/{GetClientVersion(clientType)}{BuildMetadata()}";
+            GetAssemblyVersion(clientType, RuntimeInformation.OSDescription, RuntimeInformation.IsOSPlatform, AppDomain.CurrentDomain.GetAssemblies());
+
+        // Testability seam: the platform and framework probes read process-wide ambient state
+        // (RuntimeInformation, the loaded assembly set) that a host cannot vary at runtime. This
+        // overload takes those reads as parameters so every branch is reachable hermetically; the
+        // public entry point above supplies the real values. Internal — not part of the public API.
+        internal static string GetAssemblyVersion(Type clientType, string osDescription, Func<OSPlatform, bool> isOsPlatform, IReadOnlyCollection<Assembly> loadedAssemblies) =>
+            $"{GetClientName(clientType)}-csharp/{GetClientVersion(clientType)}{BuildMetadata(osDescription, isOsPlatform, loadedAssemblies)}";
 
         private static string GetClientName(Type clientType) => clientType.Assembly.GetName().Name.ToLower();
 
         private static string? GetClientVersion(Type clientType) => GetInformationalVersion(clientType.Assembly);
 
-        private static string BuildMetadata() => string.Concat(GetPlatformInfo().ToString(), GetRuntimeInfo().ToString(), GetFrameworkInfo().ToString());
+        private static string BuildMetadata(string osDescription, Func<OSPlatform, bool> isOsPlatform, IReadOnlyCollection<Assembly> loadedAssemblies) =>
+            string.Concat(GetPlatformInfo(osDescription, isOsPlatform).ToString(), GetRuntimeInfo().ToString(), GetFrameworkInfo(loadedAssemblies).ToString());
 
         private sealed class MetadataEntry
         {
@@ -49,33 +58,33 @@ namespace Supabase.Core
             internal static MetadataEntry Unknown(string key) => new MetadataEntry(key, "unknown");
         }
 
-        private static string GetPlatform()
+        private static string GetPlatform(string osDescription, Func<OSPlatform, bool> isOsPlatform)
         {
-            if (RuntimeInformation.OSDescription == "Browser") return "browser";
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return "Windows";
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX)) return "macOS";
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Create("iOS"))) return "iOS";
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) return "Linux";
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Create("Android"))) return "Android";
-            return RuntimeInformation.OSDescription;
+            if (osDescription == "Browser") return "browser";
+            if (isOsPlatform(OSPlatform.Windows)) return "Windows";
+            if (isOsPlatform(OSPlatform.OSX)) return "macOS";
+            if (isOsPlatform(OSPlatform.Create("iOS"))) return "iOS";
+            if (isOsPlatform(OSPlatform.Linux)) return "Linux";
+            if (isOsPlatform(OSPlatform.Create("Android"))) return "Android";
+            return osDescription;
         }
 
-        private static MetadataEntry GetPlatformInfo() => new MetadataEntry("platform", GetPlatform(), Environment.OSVersion.Version.ToString());
+        private static MetadataEntry GetPlatformInfo(string osDescription, Func<OSPlatform, bool> isOsPlatform) => new MetadataEntry("platform", GetPlatform(osDescription, isOsPlatform), Environment.OSVersion.Version.ToString());
 
         private static MetadataEntry GetRuntimeInfo() => new MetadataEntry("runtime", "dotnet", Environment.Version.ToString());
 
         // Priority is explicit: MAUI wins over Blazor in hybrid apps where both assemblies are present.
         // Unity version uses GetCustomAttributesData() rather than member reflection — safe under IL2CPP.
-        private static MetadataEntry GetFrameworkInfo()
+        private static MetadataEntry GetFrameworkInfo(IReadOnlyCollection<Assembly> loadedAssemblies)
         {
-            var assemblies = AppDomain.CurrentDomain.GetAssemblies()
+            var assemblies = loadedAssemblies
                 .GroupBy(a => a.GetName().Name)
                 .ToDictionary(g => g.Key, g => g.First());
 
             if (assemblies.TryGetValue("Microsoft.Maui", out var maui))
                 return new MetadataEntry("framework", "maui", GetInformationalVersion(maui));
             if (assemblies.ContainsKey("UnityEngine.CoreModule"))
-                return new MetadataEntry("framework", "unity", GetUnityVersion());
+                return new MetadataEntry("framework", "unity", GetUnityVersion(loadedAssemblies));
             if (assemblies.TryGetValue("Microsoft.AspNetCore.Components", out var blazor))
                 return new MetadataEntry("framework", "blazor", GetInformationalVersion(blazor));
             return MetadataEntry.Unknown("framework");
@@ -90,9 +99,9 @@ namespace Supabase.Core
             catch { return Array.Empty<CustomAttributeData>(); }
         }
 
-        private static string? GetUnityVersion()
+        private static string? GetUnityVersion(IReadOnlyCollection<Assembly> loadedAssemblies)
         {
-            var attr = AppDomain.CurrentDomain.GetAssemblies()
+            var attr = loadedAssemblies
                 .SelectMany(SafeGetCustomAttributesData)
                 .FirstOrDefault(d => d.AttributeType.Name == "UnityAPICompatibilityVersionAttribute");
             return attr?.ConstructorArguments.Count > 0 ? attr.ConstructorArguments[0].Value as string : null;
