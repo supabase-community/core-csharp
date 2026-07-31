@@ -21,21 +21,15 @@ namespace Supabase.Core.Extensions
         /// <param name="me"></param>
         /// <param name="others"></param>
         /// <typeparam name="T"></typeparam>
-        /// <typeparam name="K"></typeparam>
-        /// <typeparam name="V"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
-        public static T MergeLeft<T, K, V>(this T me, params IDictionary<K, V>[] others)
-            where T : IDictionary<K, V>, new()
-        {
-            var newMap = new T();
-            foreach (var src in (new List<IDictionary<K, V>> { me }).Concat(others))
+        public static T MergeLeft<T, TKey, TValue>(this T me, params IDictionary<TKey, TValue>[] others)
+            where T : IDictionary<TKey, TValue>, new() =>
+            others.Prepend(me).SelectMany(pairs => pairs).Aggregate(new T(), (newMap, pair) =>
             {
-                foreach (var p in src)
-                {
-                    newMap[p.Key] = p.Value;
-                }
-            }
-            return newMap;
-        }
+                newMap[pair.Key] = pair.Value;
+                return newMap;
+            });
     }
 }
