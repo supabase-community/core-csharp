@@ -17,7 +17,7 @@ namespace Supabase.Core
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static T GetPropertyValue<T>(object obj, string propName) => (T)obj.GetType().GetProperty(propName).GetValue(obj, null);
-        
+
         /// <summary>
         /// Returns a cast Custom Attribute from a given object.
         /// </summary>
@@ -25,7 +25,7 @@ namespace Supabase.Core
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static T GetCustomAttribute<T>(object obj) where T : Attribute => (T)Attribute.GetCustomAttribute(obj.GetType(), typeof(T));
-        
+
         /// <summary>
         /// Returns a cast Custom Attribute from a given type.
         /// </summary>
@@ -43,7 +43,6 @@ namespace Supabase.Core
         {
             var type = obj.GetType();
             var name = Enum.GetName(type, obj);
-
             return type.GetField(name).GetCustomAttributes(false).OfType<MapToAttribute>().SingleOrDefault();
         }
     }

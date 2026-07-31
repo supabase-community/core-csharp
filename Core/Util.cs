@@ -26,7 +26,7 @@ namespace Supabase.Core
 
         // Testability seam: the platform and framework probes read process-wide ambient state
         // (RuntimeInformation, the loaded assembly set) that a host cannot vary at runtime. This
-        // overload takes those reads as parameters so every branch is reachable hermetically; the
+        // overload takes those reads as parameters, so every branch is reachable hermetically; the
         // public entry point above supplies the real values. Internal — not part of the public API.
         internal static string GetAssemblyVersion(Type clientType, string osDescription, Func<OSPlatform, bool> isOsPlatform, IReadOnlyCollection<Assembly> loadedAssemblies) =>
             $"{GetClientName(clientType)}-csharp/{GetClientVersion(clientType)}{BuildMetadata(osDescription, isOsPlatform, loadedAssemblies)}";
