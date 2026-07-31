@@ -73,54 +73,6 @@ references:
   commentId: T:Supabase.Core.Diagnostics.ActivityExtensions
   fullName: Supabase.Core.Diagnostics.ActivityExtensions
   nameWithType: ActivityExtensions
-- uid: Supabase.Core.Diagnostics.ActivityExtensions.SetFailure(System.Nullable{Activity},Exception)
-  name: SetFailure(Nullable<Activity>, Exception)
-  href: api/Supabase.Core.Diagnostics.ActivityExtensions.html#Supabase_Core_Diagnostics_ActivityExtensions_SetFailure_System_Nullable_Activity__Exception_
-  commentId: M:Supabase.Core.Diagnostics.ActivityExtensions.SetFailure(System.Nullable{Activity},Exception)
-  name.vb: SetFailure(Nullable(Of Activity), Exception)
-  fullName: Supabase.Core.Diagnostics.ActivityExtensions.SetFailure(System.Nullable<Activity>, Exception)
-  fullName.vb: Supabase.Core.Diagnostics.ActivityExtensions.SetFailure(System.Nullable(Of Activity), Exception)
-  nameWithType: ActivityExtensions.SetFailure(Nullable<Activity>, Exception)
-  nameWithType.vb: ActivityExtensions.SetFailure(Nullable(Of Activity), Exception)
-- uid: Supabase.Core.Diagnostics.ActivityExtensions.SetFailure*
-  name: SetFailure
-  href: api/Supabase.Core.Diagnostics.ActivityExtensions.html#Supabase_Core_Diagnostics_ActivityExtensions_SetFailure_
-  commentId: Overload:Supabase.Core.Diagnostics.ActivityExtensions.SetFailure
-  isSpec: "True"
-  fullName: Supabase.Core.Diagnostics.ActivityExtensions.SetFailure
-  nameWithType: ActivityExtensions.SetFailure
-- uid: Supabase.Core.Diagnostics.ActivityExtensions.SetHttpRequestTags(System.Nullable{Activity},System.String,Uri)
-  name: SetHttpRequestTags(Nullable<Activity>, String, Uri)
-  href: api/Supabase.Core.Diagnostics.ActivityExtensions.html#Supabase_Core_Diagnostics_ActivityExtensions_SetHttpRequestTags_System_Nullable_Activity__System_String_Uri_
-  commentId: M:Supabase.Core.Diagnostics.ActivityExtensions.SetHttpRequestTags(System.Nullable{Activity},System.String,Uri)
-  name.vb: SetHttpRequestTags(Nullable(Of Activity), String, Uri)
-  fullName: Supabase.Core.Diagnostics.ActivityExtensions.SetHttpRequestTags(System.Nullable<Activity>, System.String, Uri)
-  fullName.vb: Supabase.Core.Diagnostics.ActivityExtensions.SetHttpRequestTags(System.Nullable(Of Activity), System.String, Uri)
-  nameWithType: ActivityExtensions.SetHttpRequestTags(Nullable<Activity>, String, Uri)
-  nameWithType.vb: ActivityExtensions.SetHttpRequestTags(Nullable(Of Activity), String, Uri)
-- uid: Supabase.Core.Diagnostics.ActivityExtensions.SetHttpRequestTags*
-  name: SetHttpRequestTags
-  href: api/Supabase.Core.Diagnostics.ActivityExtensions.html#Supabase_Core_Diagnostics_ActivityExtensions_SetHttpRequestTags_
-  commentId: Overload:Supabase.Core.Diagnostics.ActivityExtensions.SetHttpRequestTags
-  isSpec: "True"
-  fullName: Supabase.Core.Diagnostics.ActivityExtensions.SetHttpRequestTags
-  nameWithType: ActivityExtensions.SetHttpRequestTags
-- uid: Supabase.Core.Diagnostics.ActivityExtensions.SetHttpResponseTags(System.Nullable{Activity},System.Int32)
-  name: SetHttpResponseTags(Nullable<Activity>, Int32)
-  href: api/Supabase.Core.Diagnostics.ActivityExtensions.html#Supabase_Core_Diagnostics_ActivityExtensions_SetHttpResponseTags_System_Nullable_Activity__System_Int32_
-  commentId: M:Supabase.Core.Diagnostics.ActivityExtensions.SetHttpResponseTags(System.Nullable{Activity},System.Int32)
-  name.vb: SetHttpResponseTags(Nullable(Of Activity), Int32)
-  fullName: Supabase.Core.Diagnostics.ActivityExtensions.SetHttpResponseTags(System.Nullable<Activity>, System.Int32)
-  fullName.vb: Supabase.Core.Diagnostics.ActivityExtensions.SetHttpResponseTags(System.Nullable(Of Activity), System.Int32)
-  nameWithType: ActivityExtensions.SetHttpResponseTags(Nullable<Activity>, Int32)
-  nameWithType.vb: ActivityExtensions.SetHttpResponseTags(Nullable(Of Activity), Int32)
-- uid: Supabase.Core.Diagnostics.ActivityExtensions.SetHttpResponseTags*
-  name: SetHttpResponseTags
-  href: api/Supabase.Core.Diagnostics.ActivityExtensions.html#Supabase_Core_Diagnostics_ActivityExtensions_SetHttpResponseTags_
-  commentId: Overload:Supabase.Core.Diagnostics.ActivityExtensions.SetHttpResponseTags
-  isSpec: "True"
-  fullName: Supabase.Core.Diagnostics.ActivityExtensions.SetHttpResponseTags
-  nameWithType: ActivityExtensions.SetHttpResponseTags
 - uid: Supabase.Core.Diagnostics.Instrumentation
   name: Instrumentation
   href: api/Supabase.Core.Diagnostics.Instrumentation.html
@@ -211,14 +163,14 @@ references:
   fullName: Supabase.Core.Extensions.DictionaryExtensions.MergeLeft
   nameWithType: DictionaryExtensions.MergeLeft
 - uid: Supabase.Core.Extensions.DictionaryExtensions.MergeLeft``3(``0,IDictionary{``1,``2}[])
-  name: MergeLeft<T, K, V>(T, IDictionary<K, V>[])
+  name: MergeLeft<T, TKey, TValue>(T, IDictionary<TKey, TValue>[])
   href: api/Supabase.Core.Extensions.DictionaryExtensions.html#Supabase_Core_Extensions_DictionaryExtensions_MergeLeft__3___0_IDictionary___1___2____
   commentId: M:Supabase.Core.Extensions.DictionaryExtensions.MergeLeft``3(``0,IDictionary{``1,``2}[])
-  name.vb: MergeLeft(Of T, K, V)(T, IDictionary(Of K, V)())
-  fullName: Supabase.Core.Extensions.DictionaryExtensions.MergeLeft<T, K, V>(T, IDictionary<K, V>[])
-  fullName.vb: Supabase.Core.Extensions.DictionaryExtensions.MergeLeft(Of T, K, V)(T, IDictionary(Of K, V)())
-  nameWithType: DictionaryExtensions.MergeLeft<T, K, V>(T, IDictionary<K, V>[])
-  nameWithType.vb: DictionaryExtensions.MergeLeft(Of T, K, V)(T, IDictionary(Of K, V)())
+  name.vb: MergeLeft(Of T, TKey, TValue)(T, IDictionary(Of TKey, TValue)())
+  fullName: Supabase.Core.Extensions.DictionaryExtensions.MergeLeft<T, TKey, TValue>(T, IDictionary<TKey, TValue>[])
+  fullName.vb: Supabase.Core.Extensions.DictionaryExtensions.MergeLeft(Of T, TKey, TValue)(T, IDictionary(Of TKey, TValue)())
+  nameWithType: DictionaryExtensions.MergeLeft<T, TKey, TValue>(T, IDictionary<TKey, TValue>[])
+  nameWithType.vb: DictionaryExtensions.MergeLeft(Of T, TKey, TValue)(T, IDictionary(Of TKey, TValue)())
 - uid: Supabase.Core.Helpers
   name: Helpers
   href: api/Supabase.Core.Helpers.html
