@@ -3,10 +3,8 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<PackOnBuild>true</PackOnBuild>
 		<PackageId>Supabase.Core</PackageId>
-		<Authors>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Authors>
 		<Copyright>MIT</Copyright>
 		<NeutralLanguage>en</NeutralLanguage>
-		<Owners>Joseph Schultz &lt;joseph@acupofjose.com&gt;</Owners>
 		<Summary>Shared core for supabase-csharp</Summary>
 		<Title>Supabase Core</Title>
 		<Description>Shared core for Supabase.*</Description>
@@ -32,8 +30,8 @@
 	
 	<PropertyGroup>
 		<Nullable>enable</Nullable>
-		<LangVersion>8.0</LangVersion>
-		<WarningsAsErrors>CS8600;CS8602;CS8603</WarningsAsErrors>
+		<LangVersion>default</LangVersion>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
 	</PropertyGroup>
 
 	<ItemGroup>
