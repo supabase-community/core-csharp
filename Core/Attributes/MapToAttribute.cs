@@ -27,8 +27,8 @@ namespace Supabase.Core.Attributes
         /// <param name="formatter"></param>
         public MapToAttribute(string mapping, string? formatter = null)
         {
-            Mapping = mapping;
-            Formatter = formatter;
+            this.Mapping = mapping;
+            this.Formatter = formatter;
         }
     }
 }

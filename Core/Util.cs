@@ -51,10 +51,10 @@ namespace Supabase.Core
                 this.version = version;
             }
 
-            public override string ToString() => string.IsNullOrEmpty(version)
-                ? $"; {key}={value}"
-                : $"; {key}={value}; {key}-version={version}";
-            
+            public override string ToString() => string.IsNullOrEmpty(this.version)
+                ? $"; {this.key}={this.value}"
+                : $"; {this.key}={this.value}; {this.key}-version={this.version}";
+
             internal static MetadataEntry Unknown(string key) => new MetadataEntry(key, "unknown");
         }
 
