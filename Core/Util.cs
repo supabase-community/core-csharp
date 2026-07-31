@@ -55,7 +55,7 @@ namespace Supabase.Core
                 ? $"; {this.key}={this.value}"
                 : $"; {this.key}={this.value}; {this.key}-version={this.version}";
 
-            internal static MetadataEntry Unknown(string key) => new MetadataEntry(key, "unknown");
+            internal static MetadataEntry Unknown(string key) => new(key, "unknown");
         }
 
         private static string GetPlatform(string osDescription, Func<OSPlatform, bool> isOsPlatform)
@@ -69,9 +69,9 @@ namespace Supabase.Core
             return osDescription;
         }
 
-        private static MetadataEntry GetPlatformInfo(string osDescription, Func<OSPlatform, bool> isOsPlatform) => new MetadataEntry("platform", GetPlatform(osDescription, isOsPlatform), Environment.OSVersion.Version.ToString());
+        private static MetadataEntry GetPlatformInfo(string osDescription, Func<OSPlatform, bool> isOsPlatform) => new("platform", GetPlatform(osDescription, isOsPlatform), Environment.OSVersion.Version.ToString());
 
-        private static MetadataEntry GetRuntimeInfo() => new MetadataEntry("runtime", "dotnet", Environment.Version.ToString());
+        private static MetadataEntry GetRuntimeInfo() => new("runtime", "dotnet", Environment.Version.ToString());
 
         // Priority is explicit: MAUI wins over Blazor in hybrid apps where both assemblies are present.
         // Unity version uses GetCustomAttributesData() rather than member reflection — safe under IL2CPP.

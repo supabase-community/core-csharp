@@ -20,8 +20,7 @@ namespace Supabase.Core.Diagnostics
         /// </summary>
         /// <param name="assembly">The assembly whose version identifies the emitting library.</param>
         /// <param name="name">The source name, e.g. <c>Supabase.Gotrue</c>.</param>
-        public static ActivitySource CreateActivitySource(Assembly assembly, string name) =>
-            new ActivitySource(name, GetVersion(assembly));
+        public static ActivitySource CreateActivitySource(Assembly assembly, string name) => new(name, GetVersion(assembly));
 
         /// <summary>
         /// Creates the <see cref="Meter"/> for a Supabase client library, versioned from the
@@ -29,8 +28,7 @@ namespace Supabase.Core.Diagnostics
         /// </summary>
         /// <param name="assembly">The assembly whose version identifies the emitting library.</param>
         /// <param name="name">The meter name, e.g. <c>Supabase.Gotrue</c>.</param>
-        public static Meter CreateMeter(Assembly assembly, string name) =>
-            new Meter(name, GetVersion(assembly));
+        public static Meter CreateMeter(Assembly assembly, string name) => new(name, GetVersion(assembly));
 
         /// <summary>
         /// Resolves the version of an assembly, preferring the informational (package) version
