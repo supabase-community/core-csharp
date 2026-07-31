@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Supabase.Core.Attributes
 {
@@ -14,7 +12,7 @@ namespace Supabase.Core.Attributes
         /// The externally specified target value.
         /// </summary>
         public string Mapping { get; set; }
-        
+
         /// <summary>
         /// A formatter to be passed into the <see cref="String.ToString()" /> method.
         /// </summary>
@@ -29,8 +27,8 @@ namespace Supabase.Core.Attributes
         /// <param name="formatter"></param>
         public MapToAttribute(string mapping, string? formatter = null)
         {
-            Mapping = mapping;
-            Formatter = formatter;
+            this.Mapping = mapping;
+            this.Formatter = formatter;
         }
     }
 }

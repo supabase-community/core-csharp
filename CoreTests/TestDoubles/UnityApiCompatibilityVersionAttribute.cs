@@ -12,7 +12,7 @@ namespace CoreTests.TestDoubles;
 [AttributeUsage(AttributeTargets.Assembly)]
 internal sealed class UnityAPICompatibilityVersionAttribute : Attribute
 {
-    public UnityAPICompatibilityVersionAttribute(string version) => Version = version;
+    public UnityAPICompatibilityVersionAttribute(string version) => this.Version = version;
 
     public string Version { get; }
 }

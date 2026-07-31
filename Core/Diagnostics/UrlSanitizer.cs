@@ -42,7 +42,7 @@ namespace Supabase.Core.Diagnostics
 
         private static string StripAfterPath(string url)
         {
-            var delimiterIndex = url.IndexOfAny(new[] { '?', '#' });
+            var delimiterIndex = url.IndexOfAny(['?', '#']);
             return delimiterIndex < 0 ? url : url.Substring(0, delimiterIndex);
         }
     }

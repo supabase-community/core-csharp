@@ -6,7 +6,7 @@ using Supabase.Core.Extensions;
 namespace CoreTests.Extensions;
 
 /// <summary>
-/// Covers <see cref="DictionaryExtensions.MergeLeft{T,K,V}"/>: a new dictionary combining every
+/// Covers <see cref="DictionaryExtensions.MergeLeft{T,TK,TV}"/>: a new dictionary combining every
 /// source, with later sources overwriting earlier keys, leaving the originals untouched.
 /// </summary>
 [TestClass]

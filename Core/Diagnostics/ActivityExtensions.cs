@@ -14,60 +14,67 @@ namespace Supabase.Core.Diagnostics
     /// </summary>
     public static class ActivityExtensions
     {
-        /// <summary>
-        /// Tags an outgoing HTTP request following OpenTelemetry HTTP client conventions.
-        /// The URL is sanitized to scheme/host/port/path; the query string is never recorded.
-        /// </summary>
         /// <param name="activity">The activity to tag, or null when nothing is listening.</param>
-        /// <param name="method">The HTTP method, e.g. <c>POST</c>.</param>
-        /// <param name="uri">The request URI, sanitized before tagging.</param>
-        public static Activity? SetHttpRequestTags(this Activity? activity, string method, Uri uri)
+        extension(Activity? activity)
         {
-            if (activity == null)
-                return null;
-
-            activity.SetTag("http.request.method", method);
-            activity.SetTag("server.address", uri.Host);
-            if (!uri.IsDefaultPort)
-                activity.SetTag("server.port", uri.Port);
-
-            activity.SetTag("url.full", UrlSanitizer.Sanitize(uri));
-            return activity;
-        }
-
-        /// <summary>
-        /// Tags the response status code, marking the activity as failed for 4xx/5xx responses.
-        /// </summary>
-        /// <param name="activity">The activity to tag, or null when nothing is listening.</param>
-        /// <param name="statusCode">The HTTP response status code.</param>
-        public static Activity? SetHttpResponseTags(this Activity? activity, int statusCode)
-        {
-            if (activity == null)
-                return null;
-
-            activity.SetTag("http.response.status_code", statusCode);
-            if (statusCode >= 400)
+            /// <summary>
+            /// Tags an outgoing HTTP request following OpenTelemetry HTTP client conventions.
+            /// The URL is sanitized to scheme/host/port/path; the query string is never recorded.
+            /// </summary>
+            /// <param name="method">The HTTP method, e.g. <c>POST</c>.</param>
+            /// <param name="uri">The request URI, sanitized before tagging.</param>
+            public Activity? SetHttpRequestTags(string method, Uri uri)
             {
-                activity.SetTag("error.type", statusCode.ToString());
-                activity.SetStatus(ActivityStatusCode.Error);
+                if (activity == null)
+                    return null;
+
+                activity.SetTag("http.request.method", method);
+                activity.SetTag("server.address", uri.Host);
+                if (!uri.IsDefaultPort)
+                    activity.SetTag("server.port", uri.Port);
+
+                activity.SetTag("url.full", UrlSanitizer.Sanitize(uri));
+                return activity;
             }
 
-            return activity;
+            /// <summary>
+            /// Tags the response status code, marking the activity as failed for 4xx/5xx responses.
+            /// </summary>
+            /// <param name="statusCode">The HTTP response status code.</param>
+            public Activity? SetHttpResponseTags(int statusCode)
+            {
+                if (activity == null)
+                    return null;
+
+                activity.SetTag("http.response.status_code", statusCode);
+                return statusCode >= 400 ? activity.SetErrorTags( statusCode) : activity;
+            }
+
+            /// <summary>
+            /// Marks the activity as failed with the exception type as <c>error.type</c>.
+            /// </summary>
+            /// <param name="exception">The exception whose type and message describe the failure.</param>
+            public Activity? SetFailure(Exception exception)
+            {
+                if (activity == null)
+                    return null;
+
+                activity.SetTag("error.type", exception.GetType().FullName);
+                activity.SetStatus(ActivityStatusCode.Error, exception.Message);
+                return activity;
+            }
+
+
+            private Activity? SetErrorTags( int statusCode)
+            {
+                if (activity == null)
+                    return null;
+
+                activity.SetTag("error.type", statusCode.ToString());
+                activity.SetStatus(ActivityStatusCode.Error);
+                return activity;
+            }
         }
 
-        /// <summary>
-        /// Marks the activity as failed with the exception type as <c>error.type</c>.
-        /// </summary>
-        /// <param name="activity">The activity to tag, or null when nothing is listening.</param>
-        /// <param name="exception">The exception whose type and message describe the failure.</param>
-        public static Activity? SetFailure(this Activity? activity, Exception exception)
-        {
-            if (activity == null)
-                return null;
-
-            activity.SetTag("error.type", exception.GetType().FullName);
-            activity.SetStatus(ActivityStatusCode.Error, exception.Message);
-            return activity;
-        }
     }
 }
