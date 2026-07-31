@@ -21,7 +21,7 @@ namespace CoreTests;
 public class UtilTests
 {
     private static readonly Func<OSPlatform, bool> NoPlatform = _ => false;
-    private static readonly IReadOnlyCollection<Assembly> NoFrameworks = Array.Empty<Assembly>();
+    private static readonly IReadOnlyCollection<Assembly> NoFrameworks = [];
 
     [TestMethod]
     public void GetAssemblyVersion_ShouldStartWithClientNameAndVersion() =>
@@ -84,25 +84,25 @@ public class UtilTests
 
     [TestMethod]
     public void GetAssemblyVersion_ShouldReportMauiFramework_GivenMauiAssembly() =>
-        HeaderWith(new[] { FakeAssembly.Named("Microsoft.Maui") }).Should().Contain("; framework=maui");
+        HeaderWith([FakeAssembly.Named("Microsoft.Maui")]).Should().Contain("; framework=maui");
 
     [TestMethod]
     public void GetAssemblyVersion_ShouldReportBlazorFramework_GivenBlazorAssembly() =>
-        HeaderWith(new[] { FakeAssembly.Named("Microsoft.AspNetCore.Components") }).Should().Contain("; framework=blazor");
+        HeaderWith([FakeAssembly.Named("Microsoft.AspNetCore.Components")]).Should().Contain("; framework=blazor");
 
     [TestMethod]
     public void GetAssemblyVersion_ShouldPreferMauiOverBlazor_GivenBothAssemblies() =>
-        HeaderWith(new[] { FakeAssembly.Named("Microsoft.AspNetCore.Components"), FakeAssembly.Named("Microsoft.Maui") })
+        HeaderWith([FakeAssembly.Named("Microsoft.AspNetCore.Components"), FakeAssembly.Named("Microsoft.Maui")])
             .Should().Contain("; framework=maui", "MAUI wins over Blazor in hybrid apps where both are present");
 
     [TestMethod]
     public void GetAssemblyVersion_ShouldReportUnityFrameworkWithVersion_GivenUnityAssembly() =>
-        HeaderWith(new[] { FakeAssembly.Named("UnityEngine.CoreModule"), typeof(UtilTests).Assembly })
+        HeaderWith([FakeAssembly.Named("UnityEngine.CoreModule"), typeof(UtilTests).Assembly])
             .Should().Contain("; framework=unity; framework-version=2022.3.5f1");
 
     [TestMethod]
     public void GetAssemblyVersion_ShouldReportUnityFrameworkWithoutVersion_GivenNoUnityVersionAttribute() =>
-        HeaderWith(new[] { FakeAssembly.Named("UnityEngine.CoreModule") })
+        HeaderWith([FakeAssembly.Named("UnityEngine.CoreModule")])
             .Should().Contain("; framework=unity").And.NotContain("framework-version",
                 "an absent Unity version attribute must resolve to no version, not throw");
 

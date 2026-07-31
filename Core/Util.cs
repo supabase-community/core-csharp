@@ -96,7 +96,7 @@ namespace Supabase.Core
         private static CustomAttributeData[] SafeGetCustomAttributesData(Assembly assembly)
         {
             try { return assembly.GetCustomAttributesData().ToArray(); }
-            catch { return Array.Empty<CustomAttributeData>(); }
+            catch { return []; }
         }
 
         private static string? GetUnityVersion(IReadOnlyCollection<Assembly> loadedAssemblies)
