@@ -1,26 +1,20 @@
-<p align="center">
-<img width="300" src=".github/supabase-core.png"/>
-</p>
-<p align="center">
-  <img src="https://github.com/supabase-community/core-csharp/workflows/Build%20And%20Test/badge.svg"/>
-  <a href="https://www.nuget.org/packages/Supabase.Core/">
-    <img src="https://img.shields.io/nuget/vpre/Supabase.Core"/>
-  </a>
-</p>
+# Supabase.Core has moved
 
-This repo contains shared resources for the [supabase-csharp](https://github.com/supabase-community/supabase-csharp)
-repo and its dependent libraries.
+> [!IMPORTANT]
+> This repository is **archived and read-only**. `Supabase.Core` is now developed in the
+> **[supabase-csharp](https://github.com/supabase-community/supabase-csharp)** monorepo,
+> alongside the other Supabase .NET packages.
 
-## Package made possible through the efforts of:
+- **Source:** [supabase-csharp/packages/Core](https://github.com/supabase-community/supabase-csharp/tree/master/packages/Core)
+- **Issues & pull requests:** [open them in the monorepo](https://github.com/supabase-community/supabase-csharp/issues)
 
-Join the ranks! See a problem? Help fix it!
+## The NuGet package is unchanged
 
-<a href="https://github.com/supabase-community/core-csharp/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=supabase-community/core-csharp" />
-</a>
+Only the repository has moved — [`Supabase.Core`](https://www.nuget.org/packages/Supabase.Core/) is still
+published from the monorepo, so nothing changes for consumers:
 
-Made with [contrib.rocks](https://contrib.rocks/preview?repo=supabase-community%core-csharp).
+```sh
+dotnet add package Supabase.Core
+```
 
-## Contributing
-
-We are more than happy to have contributions! Please submit a PR.
+[![NuGet](https://img.shields.io/nuget/v/Supabase.Core)](https://www.nuget.org/packages/Supabase.Core/)
